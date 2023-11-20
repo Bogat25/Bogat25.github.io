@@ -7,47 +7,64 @@
     <title>Form gyakorlas</title>
 </head>
 <body>
-    <h2>User Input Form</h2>
-    <form action="#" method="get">
+
+    <form action="#">
+        <h2>Formázatlan Form</h2>
         <fieldset>
-            <legend>Personal Informasion</legend>
-            <label for="fullName">Name: </label>
-            <input type="text" id="fullName" name="fullName">
-        <br>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
-        <br>
-            Gender:
+            <legend>Application form</legend>
+            <label for="fullName">Full Name</label>
+            <input type="text" name="fullName" id="fullName">
+            <br>
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email">
+            <br>
+            <label for="gender">Gender</label>
             <input type="radio" name="gender" id="male">
-            <label for="male">Male</label>
+            Male
             <input type="radio" name="gender" id="female">
-            <label for="female">Female</label>
+            Female
             <br>
-            <label for="age">Age:</label>
-            <select name="age" id="age">
-                <option value="0">< 1 years old</option>
-                <option value="1">> 1 years old</option>
+            <label for="nationality">Nationality</label>
+            <select name="nationality" id="nationality">
+                <option value="usa">USA</option>
+                <option value="hun">HUN</option>
             </select>
-        </fieldset>
-        <fieldset>
-            <legend>Languages</legend>
-            <input type="checkbox" name="java" id="java">
-            <label for="java">Java</label>
-            <input type="checkbox" name="c" id="c">
-            <label for="c">C/C++</label>
-            <input type="checkbox" name="python" id="python">
-            <label for="python">Python</label>
-        </fieldset>
-        <fieldset>
-            <legend>Instructions</legend>
-
-            <textarea placeholder="ABC" name="" id="" cols="30" rows="10"></textarea>
-
             <br>
-
-            <button type="submit">Sublit</button>
-            <button>Clear</button>
+            <label for="skills">Skills</label>
+            <input type="checkbox" name="skills" id="ftp">
+            FTP
+            <input type="checkbox" name="skills" id="HTTP">
+            HTTP
+            <br>
+            <input type="checkbox" name="skills" id="excel">
+            Excel
+            <input type="checkbox" name="skills" id="acces">
+            Acces
+            <br>
+            <label for="postApplying">Post Applying</label>
+            <input type="radio" name="postApplying" id="postApplying">
+            Trainee
+            <input type="radio" name="postApplying" id="softwareEngineer">
+            Software Engineer
+            <br>
+            <label for="for">for</label>
+            <input type="radio" name="for" id="teamLeader">
+            Team Leader
+            <input type="radio" name="for" id="projectManager">
+            Project Manager
+            <br>
+            <label for="resume">Past Your Resume</label>
+            <textarea name="resume" id="resume" cols="30" rows="10"></textarea>
+            <br>
+            <input type="radio" name="notif" id="notif">
+            <label for="notify">Notify me the status via Email</label>
+            <br>
+            <input type="checkbox" name="aggree" id="aggree">
+            <label for="aggree">I aggree...</label>
         </fieldset>
+
+
     </form>
+
 </body>
 </html>
