@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>Form gyakorlas</title>
 </head>
 <body>
     <h2>User Input Form</h2>
-    <form action="#" method="get">
+    <div id="form" action="#" method="get">
         <fieldset>
             <legend>Personal Informasion</legend>
             <label for="fullName">Name: </label>
@@ -18,9 +19,9 @@
             <input type="password" name="password" id="password">
         <br>
             Gender:
-            <input type="radio" name="gender" id="male">
+            <input type="radio" name="gender" id="male" value="male">
             <label for="male">Male</label>
-            <input type="radio" name="gender" id="female">
+            <input type="radio" name="gender" id="female" value="female">
             <label for="female">Female</label>
             <br>
             <label for="age">Age:</label>
@@ -31,11 +32,11 @@
         </fieldset>
         <fieldset>
             <legend>Languages</legend>
-            <input type="checkbox" name="java" id="java">
+            <input type="checkbox" name="prog" id="java" value="java">
             <label for="java">Java</label>
-            <input type="checkbox" name="c" id="c">
+            <input type="checkbox" name="prog" id="c" value="c">
             <label for="c">C/C++</label>
-            <input type="checkbox" name="python" id="python">
+            <input type="checkbox" name="prog" id="python" value="python">
             <label for="python">Python</label>
         </fieldset>
         <fieldset>
@@ -45,7 +46,7 @@
 
             <br>
 
-            <button type="submit">Sublit</button>
+            <button onclick="submitForm()">Sublit</button>
             <button>Clear</button>
         </fieldset>
     </form>
