@@ -1,1 +1,315 @@
-asdasd
+Old meg bash parancsokkal:
+
+01. 
+Hozz létre egy projekt könyvtárat a home könyvtárádban. Ebben a könyvtárban hozz létre egy dokumentumok alkönyvtárat és egy kepek alkönyvtárat.
+
+02. 
+Hozz létre egy fontos.txt nevű fájlt a projekt/dokumentumok könyvtárban és egy kep1.jpg és kep2.jpg fájlt a projekt/kepek könyvtárban.
+
+03. 
+Másold le a fontos.txt fájlt a backup könyvtárba.
+
+04.
+Másold le a kep1.jpg fájlt a projekt/kepek könyvtárból a projekt/dokumentumok könyvtárba és nevezd át dokumentum.jpg-re.
+
+05.
+Listázd ki a projekt könyvtár tartalmát.
+
+06.
+Listázd ki a projekt könyvtár tartalmát, beleértve a rejtett fájlokat is.
+
+07.
+Töröld a kep2.jpg fájlt a projekt/kepek könyvtárból.
+
+08.
+Töröld az egész projekt könyvtárat.
+
+09.
+Hozz létre egy osztalyok/matematika könyvtárat a home könyvtáradba.
+
+10.
+Hozz létre egy jegyzetek/2022 könyvtárat, majd a 2022 könyvtárban hozz létre egy jegyzet.txt nevű fájlt.
+
+----------------------------------------------------------------
+
+OS. gyak 2
+---
+echo, mv, cat, >, >>, ln, chmod, head, tail
+
+Szöveg kiíratás:
+echo: szöveg kiíratása a konzolba
+echo szöveg
+Ha több space-t írunk, akkor is csak egy spacet használ, mert a szavakat paraméterként dolgozza fel és feltételezi, hogy a space maga szóelválasztó
+Megoldás: idézőjeleket kell használni
+Automatikusan sort emelt, ha ezt nem akarjuk, akkor -n kapcsoló
+-e escape szekveniák használata (pl. prog 1, printf: \t tabulátor, \n új sor)
+
+Áthelyezés:
+mv forrásfájl célfájl: fájlok áthelyezése
+Ugyanazon mappába kell áthelyezni egy fájlt, akkor átnevezi a fájl
+Ha két könyvtár eltér, akkor áthelyezés is történik
+Ha célfájl létezik, akkor ezt a mv parancs felül fogja írni
+
+Tobb fájl esetén mindegyiket a célmappába fogja átmozhatni (egyezés esetén felülírás)
+mv -i: áthelyezés kérdéssel
+
+Fájlok tartalának kiíratása:
+cat fáj1, fájl2, fájl3: fájlok tartalmának kiíratása
+cat *.txt: kiírja az összes txt kiterjesztésú fájl tartalmát
+cat paraméter nélkül, visszadja azt amit beírunk a konzolba (Ctrl+D-vel jelezzük a bevitel végét
+hosszú fájl esetén cat parancsa csak annyit mutat, amennyi kifér a képernyőre
+
+less fájlnév: képernyőként megy a tartalomon (kilépés a q gombbal)
+more fájlnév: hasonló, csak egy kicsit kevesebb tudással, mint a less (space: léptetés, q: kilépés)
+
+Kimenet átirányítása (pl. egy fájlba)
+---
+A kisebb nagyobb jel segítségével egy fájlba tudjuk irányítani a parancssor kimenetét
+ls -l
+ls -l > list.txt
+more lista.txt
+Fájlnév egyezés esetén felülírja a fájlt
+
+>> (dupla kisebb nagyobbb jel): hozzáfűzzük a fájl végéhez
+
+cat allatok.txt >> lista.txt (a lista.txt végére fűzi az állatok.txt fájlt)
+cat > newfile.txt: tartalom létrehozása, ennél jobb megoldás egy szerkesztő használata pl. nano, vim
+
+nano file.dat
+
+Bemenet átirányítása (pl. egy fájlba)
+---
+./pelda < bemenet.txt a példa fájlnak hozzáadjuk bemenetként a bemenet.txt fájl
+
+c kód futtatása esetén telepíteni kell a gcc-t 
+sudo apt-get update
+sudo apt-get install gcc
+
+Fájlok linkelése
+---
+
+Soft link
+Egy olyan speciális fájl, amely egy másik fájl elérési útját tartalmazza
+Egy link mutathat fájlra vagy könyvtárra is. Ez egyenértékű azzal, mint ha a másik fájlra hivatkoznánk kivéve (átnevezés, törlés stb.)
+Például egy gyakran használt fájlt amely nem a home könyvtáramban van, arra érdemes lehet készíteni egy hivatkozást
+
+ln -s (soft link) létező fájl [célkönyvtár vagy célfájl]
+
+Pl.:
+ln -s banan.txt bananlink
+ls -l bananlink
+lrwxrwxrwx 1 balazs balazs 9 Feb 22 13:31 bananlink -> banan.txt
+
+Emlékeztető: az ls -l paranccsal látható a hivatkozás, hogy hova mutat.
+
+Ha törlöm az eredeti fájt, akkor a link meghíváskor kiírja, hogy nincs ilyen fájl.
+
+Hard link
+Az eredeti tartalomhoz két fájlt hozunk létre.
+ln létező fájl hivatkozással új fájl jön létre.
+
+ls -l esetén regular fájlként lesz kilistázva, de a linkszámláláló nőtt
+
+Ha egy állományt törlök, akkor a másik megmaradt, a link 2-ről 1-re változik
+Könyvtárra hard linket nem lehet létrehozni, továbbá ha több fájlrendszer van, akkor a fájlrendszerek között csak soft linket lehet használni
+
+Jogosultsások módosítása
+---
+
+Kinek:
+u: user (tulajdonos)
+g: group (csoport)
+o: others (mások)
+a: all (mindenki)
+
+Mit:
+r: read (olvasási jog)
+w: write (írási jog)
+x: execure (vágrehajtási/belépési jog)
++: megad, -: elvesz
+
+-rw-r--r-- 1 balazs balazs   274 Apr  1  2021  zh01.sh
+
+chmod modosítás fájlok neve
+chmod o+w szoveg.txt (jogosultság hozzáadása)
+chmod o-w szoveg.txt (jogosultság elvétele)
+
+Oktális számok
+x: 1-esk
+w: 2-esek
+r: 4-esek
+-: 0-sok
+
+chmod 644 szoveg.txt
+
+senki semmilyen jogosultság: 000
+mindenkinek minden jogosultság: 777
+
+Kitekintő:
+chown ujtulaj fájlnév/elérés: új tulajdonos létrehozása
+chgrp ujcsoport fájlnév/elérés: új csoport létrehozása
+kombinálva: chown jozsef:security server.log (sudo használatára van szükség)    
+
+Fájl eleje és vége
+---
+head -n szám fájlnév: fájl első szám sorát íratja ki
+Ha nincs annyi sor, mint amennyit kérünk, nincs hiba
+tail -n szám fájlnév: fájl utolsó szám sorát íratja ki
+
+Kitekintés:
+tail -f tail miután kiírt x sort, nem tér vissza, hanem folyamatosan nézi, hogy kerülnek-e újabb sorok a fájlba, és azokat kiíratja, pl. log fájlok folyamatos bővülése
+
+----------------------------------------------------------------
+
+OS. gyak 3
+---
+pipe(|), wc, cut, sort, ps, fg, kill, find
+
+Programok összefűzése a pipe paranccsal segítségével
+Programokat amelyekak konzolra írnak és konzolról olvasnak összefűzzük (pipeolás)
+ls -l | tail -n 5: részletes listát átadja a tailnek, amely kilistázza az utolsó 5 sort 
+cat olvassel.txt | head -n 5: az olvassel.txt első 5 sorát adja vissza
+
+Több fájl esetén kiíratja a nevét, amelyet -q kapcsoló el lehet tüntetni
+
+cat fájl1.txt fájl2.txt | head -n 2: a fájl1.txt és fájl2.txt a cat által egyesített megjelenítésének első két sorát iratja ki
+
+Pipe több parancsot is egybe lehet fűzni
+Írassuk ki egy fájl 2. sorát
+
+cat sorok.txt - jelenítse meg mindet
+cat sorok.txt | head -n 2 - jelenítse meg az első kettőt
+cat sorok.txt | head -n 2 | tail -n 1 - jelenítse meg az első kettőből az utolsót
+ 
+Írassuk ki egy fájl utolsó előtti sorát
+ 
+cat sorok.txt - jelenítse meg mindet
+cat sorok.txt | tail -n 2 - jelenítse meg az utolsó kettőt
+cat sorok.txt | tail -n 2 | head -n 1 | jelenítse meg az utolsó kettőből az elsőt
+
+Sorok, szavak, karakterek száma:
+wc parancs
+wc -l: sorok száma
+wc -w: szavak száma
+wc -c: karakterek száma
+
+Az előbbiek kombinálhatók is
+wc -wl: a szavakat és a sorokat is számolja meg
+wc minden kiír
+
+Pipe esetén használható, pl. számolja meg hány bejegyzés van az adott könyvtárban
+
+ls -1 | wc -l: a bejegyzések kiíratása egy oszlopba, majd sorok számának összeszámolása
+wc -l *.txt: az összes bejegyzés sorok száma, össz. száma
+
+Cut (mezők vágása)
+---
+Adatott sorokból melyik mezőt adja vissza
+cut -c kezdő-vég karakterek
+cut -c 2-5 fájl.txt, a sorokból kivágja a 2-5 közötti karaktereket
+cut -c 3 fájl.txt, csak a 3. karakterek
+
+Példa, 1-3 karakter kivágása:
+cat sorok.txt | cut -c 1-3
+
+Mező vágása, egy elhatároló alapján (-d kapcsoló), amely alapesetben egy tab
+cat sorok.txt | cut -d -f 2 (második oszlop kivágása -f kapcsoló segítségével)
+cat sorok.txt | cut -d ';' -f 1 (első oszlop kivágása, egy olyan struktúrában, amelyeket ";"-al vannak elválasztva)
+
+sort (rendezés)
+pl. cat nevek.txt | sort (abc sorrend)
+
+sort -r (csökkenő sorrend)
+pl. cat nevek.txt | sort -r 
+
+sort -k:  melyik mező szerint rendezzen
+pl. ls -l | sort -k 6 (dátum növekvő)
+
+sort -n: numerikus sorrendezés
+pl. ls -l | sort -k 5 (méret növekvő)
+
+Példa:
+Jelenítse meg a könyvtárában a legnagyobb fájl adatait:
+ls -l | sort -k 5 | tail -n 1
+Jelenítse meg a könyvtárában a legkisebb fájl adatait:
+ls -l | sort -k 5 | head -n 2 | tail -n 1
+
+sort -u: egyező sorok elrejtése
+pl. cat telefonszamok.txt | sort -u
+
+Folyamatok:
+A /proc alatt egy virtuális fájlrendszer található, ahol a futó folyamatokól tudhatunk meg információkat
+pl. cat /proc/cpuinfo (a gép CPU adatainak lekérdezése)
+
+ps: saját folyamataimat mutatja
+Összes felhasználó összes folyamata bővített formátumban:
+ps aux (a - összes, u - felhasználók, x - bővített formátum)
+
+Folyamat leállítása: kill
+
+pl.
+nano lorem.txt
+új terminálablak indítása
+ps aux (kilistázom a folyamatokat)
+Ezt követően kiválasztom a leállítandó folyamat PID-ját, és ezt adom meg a kill parancs paraméterének
+kill 1322
+
+ps f (gyerek folyamatok kilistáza)
+
+killall folyamatnév: összes meghatározott nevű folyamat leállítása
+
+Futó folyamatok listázáta: jobs
+Futó folyamat háttérbe helyezése:
+nano lorem.txt & (háttérben fusson), vagy futás közben ctrl + z 
+ezt követően kiírja a rendszer, hogy
+[1] - 1 jobs
+234567 - Process id
+
+Első (1) job előtérbe helyezése:
+fg 1 (első jobot)
+
+Felfüggesztett folyamat leállítás:
+kill pid (process id)
+kill -9 %1 (-9/SIGKILL %job id)
+
+Keresés: find parancs
+A find segítségével egy adott könyvtárban egy adott állományt/állományokat keresünk
+Fontos, hogy alapesetben rekurzív, lemegy a legalsó gyerekig
+Lehet, név, típus, vagy méret és egyéb tulajdonságok alapján
+
+find könyvtár kapcsolók tulajdonságok/jellegek
+
+-name: névre keressen
+-iname: ne legyen kis/nagybetű érzékeny
+-regexp: reguláris kifejezés
+-type f, -type d: fájl/könyvtár
+-size: méret
+-exec: a megtalált fájlokon egy parancsot hajtson végre
+-maxdepth: könyvtár mélység
+-group: csoport definiálása
+
+Példák (a "." az aktuális mappa helye, átírható tetszőleges struktúrára):
+
+find . -name hudemely.txt
+find . -name "*.txt"
+find . mappa -type f -name "*.txt" (fontos: a reguláris kifejezéseket idézőjel közé kell tenni)
+
+find . -type f -name "*.txt" -exec ls -l "{}" \; {ide hellyetesítődik be amit a find talál}
+
+Összes könytár információ kilistázásaa
+find . -type d -exec ls -ld "{}" \; (ls -ld: könyvtár információk kilistázása hosszú formátumban)
+
+Összes txt fájl első két sorának kiíratása
+find . -type f -name "*.txt" -exec head -n 2 "{}" \;   
+
+Hány sorból állnak a .txt kiterjesztésű fájlok
+find . -type f -name "*.txt" -exec wc -l "{}" \;
+
+Biztonsági mentés egy mappába
+find . -maxdepth 1 -type f -name "*.txt" -exec cp "{}" ./backup/"{}".bak \;
+
+A txt fájloknak összesen hány soruk van
+find . -type f -name "*.txt" -exec cat "{}" \; | wc -l
+
+A txt fájloknak összes sorát rendezzük és lapozhatóvá tegyük
+find . -type f -name "*.txt" -exec cat "{}" \; | sort | more
