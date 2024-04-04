@@ -1,0 +1,104 @@
+{
+  "varosok": [
+    {
+      "lakossag": 1756000,
+      "orszag": "Magyarország",
+      "kontinens": "Európa"
+    },
+    {
+      "lakossag": 203000,
+      "orszag": "Magyarország",
+      "kontinens": "Európa"
+    },
+    {
+      "lakossag": 161000,
+      "orszag": "Magyarország",
+      "kontinens": "Európa"
+    },
+    {
+      "lakossag": 8419000,
+      "orszag": "Amerikai Egyesült Államok",
+      "kontinens": "Észak-Amerika"
+    },
+    {
+      "lakossag": 3971000,
+      "orszag": "Amerikai Egyesült Államok",
+      "kontinens": "Észak-Amerika"
+    },
+    {
+      "lakossag": 6748000,
+      "orszag": "Brazília",
+      "kontinens": "Dél-Amerika"
+    },
+    {
+      "lakossag": 12300000,
+      "orszag": "Brazília",
+      "kontinens": "Dél-Amerika"
+    },
+    {
+      "lakossag": 2148000,
+      "orszag": "Franciaország",
+      "kontinens": "Európa"
+    },
+    {
+      "lakossag": 8982000,
+      "orszag": "Egyesült Királyság",
+      "kontinens": "Európa"
+    },
+    {
+      "lakossag": 13960000,
+      "orszag": "Japán",
+      "kontinens": "Ázsia"
+    },
+    {
+      "lakossag": 2681000,
+      "orszag": "Japán",
+      "kontinens": "Ázsia"
+    },
+    {
+      "lakossag": 5312000,
+      "orszag": "Ausztrália",
+      "kontinens": "Ausztrália"
+    },
+    {
+      "lakossag": 5078000,
+      "orszag": "Ausztrália",
+      "kontinens": "Ausztrália"
+    },
+    {
+      "lakossag": 9500000,
+      "orszag": "Egyiptom",
+      "kontinens": "Afrika"
+    },
+    {
+      "lakossag": 957000,
+      "orszag": "Dél-Afrika",
+      "kontinens": "Afrika"
+    },
+    {
+      "lakossag": 12500000,
+      "orszag": "Oroszország",
+      "kontinens": "Európa"
+    },
+    {
+      "lakossag": 5352000,
+      "orszag": "Oroszország",
+      "kontinens": "Európa"
+    },
+    {
+      "lakossag": 21540000,
+      "orszag": "Kína",
+      "kontinens": "Ázsia"
+    },
+    {
+      "lakossag": 24240000,
+      "orszag": "Kína",
+      "kontinens": "Ázsia"
+    },
+    {
+      "lakossag": 12440000,
+      "orszag": "India",
+      "kontinens": "Ázsia"
+    }
+  ]
+}
